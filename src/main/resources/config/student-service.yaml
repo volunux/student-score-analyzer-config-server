@@ -1,0 +1,31 @@
+server:
+  port: 8088
+  
+api-base-path: /api/v1
+    
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    healthcheck:
+      enabled: true
+      
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include: '*'
+    enabled-by-default: true

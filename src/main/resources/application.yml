@@ -1,0 +1,11 @@
+server:
+  port: 8888
+  
+spring:
+  application:    name: tplnt-config-server
+  profiles:    active:    - native
+  cloud:
+    config:      server:
+        native:          search-locations:          - classpath:/config
+      allow-override: true
+      override-none: false
